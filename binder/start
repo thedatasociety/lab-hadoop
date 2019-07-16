@@ -1,34 +1,34 @@
 #!/bin/bash
 
 #Starting sshd server
-/usr/sbin/sshd -f $(pwd)/resources/configs/ssh/sshd_config
+/usr/sbin/sshd -f $(pwd)/resources/configs/ssh/sshd_config && \
 sleep 2
 # Adding names to know hosts. This step avoids yes/no host confirmation.
-ssh -o "StrictHostKeyChecking no" $USER@localhost -p 8822 -C "exit" 
+ssh -o "StrictHostKeyChecking no" $USER@localhost -p 8822 -C "exit" && \
 ssh -o "StrictHostKeyChecking no" $USER@0.0.0.0   -p 8822 -C "exit"
 
 # Copying configurations files to the Hadoop folder 
-cp $(pwd)/resources/configs/hadoop/${HADOOP_VERSION}/core-site.xml   ${HADOOP_PATH}/etc/hadoop/
+cp $(pwd)/resources/configs/hadoop/${HADOOP_VERSION}/core-site.xml   ${HADOOP_PATH}/etc/hadoop/ && \
 cp $(pwd)/resources/configs/hadoop/${HADOOP_VERSION}/hdfs-site.xml   ${HADOOP_PATH}/etc/hadoop/
 
 # Formatting the filesystem
-hdfs namenode -format -force -nonInteractive
+hdfs namenode -format -force -nonInteractive && \
 sleep 3
 
-start-dfs.sh 
+start-dfs.sh && \
 sleep 3
 
 #Copying YARN configurations for Pseudo-Distributed Mode
-cp $(pwd)/resources/configs/hadoop/${HADOOP_VERSION}/mapred-site.xml ${HADOOP_PATH}/etc/hadoop/
+cp $(pwd)/resources/configs/hadoop/${HADOOP_VERSION}/mapred-site.xml ${HADOOP_PATH}/etc/hadoop/ && \
 cp $(pwd)/resources/configs/hadoop/${HADOOP_VERSION}/yarn-site.xml   ${HADOOP_PATH}/etc/hadoop/
-start-yarn.sh 
+start-yarn.sh && \
 sleep 3
 
 hdfs dfs -mkdir /user/
 hdfs dfs -mkdir /user/matheus/
 hdfs dfs -mkdir /user/$USER
 
-echo "dit it all" > startresult.txt
+echo "${USER}" > startresult.txt
 
 
 
