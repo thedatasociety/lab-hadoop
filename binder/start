@@ -3,8 +3,6 @@
 #starting dfs and yarn
 source .bashrc
 
-echo "$" > mywd.txt
-
 #Starting sshd server
 /usr/sbin/sshd -f $(pwd)/resources/configs/ssh/sshd_config
 sleep 5
@@ -21,7 +19,7 @@ hdfs namenode -format -force -nonInteractive
 sleep 5
 
 start-dfs.sh 
-sleep 10
+sleep 5
 
 hdfs dfs -mkdir /user/
 hdfs dfs -mkdir /user/matheus/
@@ -31,7 +29,7 @@ hdfs dfs -mkdir /user/$USER
 cp $(pwd)/resources/configs/hadoop/${HADOOP_VERSION}/mapred-site.xml ${HADOOP_PATH}/etc/hadoop/
 cp $(pwd)/resources/configs/hadoop/${HADOOP_VERSION}/yarn-site.xml   ${HADOOP_PATH}/etc/hadoop/
 start-yarn.sh 
-sleep 10
+sleep 5
 
 
 
