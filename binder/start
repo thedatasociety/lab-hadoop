@@ -7,19 +7,19 @@ echo "$" > mywd.txt
 
 #Starting sshd server
 /usr/sbin/sshd -f $(pwd)/resources/configs/ssh/sshd_config
-sleep 10
-
+sleep 5
 # Adding names to know hosts
 #Commands below stablish ssh connections to used host names/ips. This step avoids yes/no host confirmation.
 ssh -o "StrictHostKeyChecking no" $USER@localhost -p 8822 -C "exit" 
 ssh -o "StrictHostKeyChecking no" $USER@0.0.0.0   -p 8822 -C "exit"
 
 #starting
-${HADOOP_PATH}/start-dfs.sh && ${HADOOP_PATH}/start-yarn.sh && sleep 15
+${HADOOP_PATH}/start-dfs.sh && sleep 15 && ${HADOOP_PATH}/start-yarn.sh && sleep 15
 
 
 # Formatting the filesystem
 hdfs namenode -format -force -nonInteractive
+sleep 10
 hdfs dfs -mkdir /user/
 hdfs dfs -mkdir /user/matheus/
 hdfs dfs -mkdir /user/$USER
