@@ -18,7 +18,7 @@ jupyter labextension install @jupyterlab/toc --no-build
 
 # Jupyter/Jupyterlab extension for proxying internal applications
 jupyter serverextension enable --sys-prefix jupyter_server_proxy
-jupyter labextension install jupyterlab-server-proxy
+jupyter labextension install jupyterlab-server-proxy --no-build 
 
 # Building everything up
 jupyter lab build --dev
@@ -53,7 +53,6 @@ echo "export PATH=\$PATH:\$HADOOP_PATH/bin"  >> ~/.bashrc
 echo "export PATH=\$PATH:\$HADOOP_PATH/bin"  >> ~/.profile
 echo "export PATH=\$PATH:\$HADOOP_PATH/sbin" >> ~/.bashrc
 echo "export PATH=\$PATH:\$HADOOP_PATH/sbin" >> ~/.profile
-
 
 # creating ssh-related folders
 mkdir .ssh/etc/ssh -p

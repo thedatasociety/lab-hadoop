@@ -5,7 +5,6 @@ source $(pwd)/.profile
 
 #Starting sshd server
 /usr/sbin/sshd -f $(pwd)/resources/configs/ssh/sshd_config 
-sleep 1
 
 # Adding names to know hosts. This step avoids yes/no host confirmation.
 ssh -o "StrictHostKeyChecking no" $USER@localhost -p 8822 -C "exit" 
@@ -16,10 +15,9 @@ cp $(pwd)/resources/configs/hadoop/${HADOOP_VERSION}/core-site.xml ${HADOOP_PATH
 cp $(pwd)/resources/configs/hadoop/${HADOOP_VERSION}/hdfs-site.xml ${HADOOP_PATH}/etc/hadoop/
 
 # Formatting the filesystem
-hdfs namenode -format -force -nonInteractive 
+hdfs namenode -format -force -nonInteractive >> /dev/null
 
 start-dfs.sh 
-sleep 1
 
 #Copying YARN configurations for Pseudo-Distributed Mode
 cp $(pwd)/resources/configs/hadoop/${HADOOP_VERSION}/mapred-site.xml ${HADOOP_PATH}/etc/hadoop/ 
@@ -27,12 +25,10 @@ cp $(pwd)/resources/configs/hadoop/${HADOOP_VERSION}/yarn-site.xml   ${HADOOP_PA
 start-yarn.sh 
 
 hdfs dfs -mkdir /user/
-hdfs dfs -mkdir /user/matheus/
-hdfs dfs -mkdir /user/$USER
+# hdfs dfs -mkdir /user/matheus/
+# hdfs dfs -mkdir /user/$USER
 
 # echo "${USER} $(pwd) ${HADOOP_PATH} ${HADOOP_VERSION}" > startresult.txt
-
-
 
 
 # DO NOT REMOVE(!) 
