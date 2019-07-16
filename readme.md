@@ -23,7 +23,7 @@
 
 # lab-hadoop
 
-A repository for launching laboratories.
+A laboratory for learning Hadoop.
 
 ## Table of contents
 

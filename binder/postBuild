@@ -26,31 +26,28 @@ jupyter labextension install @mflevine/jupyterlab_html --no-build
 # Building everything up
 jupyter lab build --dev
 
-###############################################################
-#          /jupyter/jupyterlab extensions/kernels             #
-###############################################################
+
 
 
 ###############################################################
 #             hadoop related commands                         #
 ###############################################################
 
-
 export HADOOP_VERSION=2.9.2
 export HADOOP_PATH=$(pwd)/hadoop-2.9.2
 
-wget http://ftp.unicamp.br/pub/apache/hadoop/common/hadoop-${HADOOP_VERSION}/hadoop-${HADOOP_VERSION}.tar.gz -q --show-progress
+wget http://ftp.unicamp.br/pub/apache/hadoop/common/hadoop-${HADOOP_VERSION}/hadoop-${HADOOP_VERSION}.tar.gz -q 
 tar -xvf hadoop-${HADOOP_VERSION}.tar.gz >/dev/null 
 rm       hadoop-${HADOOP_VERSION}.tar.gz
 
 export JAVA_HOME=/usr/lib/jvm/java-8-openjdk-amd64
 echo "export JAVA_HOME=/usr/lib/jvm/java-8-openjdk-amd64 " >> ~/.bashrc
-echo "export JAVA_HOME=/usr/lib/jvm/java-8-openjdk-amd64 " >> ~/.profile
+# echo "export JAVA_HOME=/usr/lib/jvm/java-8-openjdk-amd64 " >> ~/.profile
 echo "export JAVA_HOME=/usr/lib/jvm/java-8-openjdk-amd64 " >> ${HADOOP_PATH}/etc/hadoop/hadoop-env.sh
 echo "export PATH=${PATH}:${HADOOP_PATH/bin}  " >> ~/.bashrc
 echo "export PATH=${PATH}:${HADOOP_PATH/sbin} " >> ~/.bashrc
-echo "export PATH=${PATH}:${HADOOP_PATH/bin}  " >> ~/.profile
-echo "export PATH=${PATH}:${HADOOP_PATH/sbin} " >> ~/.profile
+# echo "export PATH=${PATH}:${HADOOP_PATH/bin}  " >> ~/.profile
+# echo "export PATH=${PATH}:${HADOOP_PATH/sbin} " >> ~/.profile
 
 
 # creating ssh-related folders
@@ -65,7 +62,3 @@ chmod 600 .ssh/etc/ssh/* -R
 
 # hadoop 3.*.*
 echo "export PDSH_RCMD_TYPE=ssh" >> ~/.bashrc
-
-###############################################################
-#             /hadoop related commands                         #
-###############################################################
