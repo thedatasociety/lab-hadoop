@@ -1,11 +1,13 @@
 #!/bin/bash
 
-#Starting sshd server
-/usr/sbin/sshd -f $(pwd)/resources/configs/ssh/sshd_config
-
-
 #starting dfs and yarn
 source .bashrc
+#Starting sshd server
+
+echo "$(pwd)" > mywd.txt
+
+/usr/sbin/sshd -f $(pwd)/resources/configs/ssh/sshd_config
+
 start-dfs.sh
 start-yarn.sh
 
