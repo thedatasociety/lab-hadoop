@@ -29,7 +29,7 @@ ${HADOOP_PATH}/bin/hdfs dfs -mkdir /user/
 ${HADOOP_PATH}/bin/hdfs dfs -mkdir /user/matheus/
 ${HADOOP_PATH}/bin/hdfs dfs -mkdir /user/$USER
 
-echo "${USER} ${HADOOP_PATH}" > startresult.txt
+echo "${USER} ${HADOOP_PATH} $(pwd)" > startresult.txt
 
 
 
