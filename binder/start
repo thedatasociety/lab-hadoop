@@ -1,12 +1,19 @@
 #!/bin/bash
 
+#Starting sshd server
+/usr/sbin/sshd -f $(pwd)/resources/configs/ssh/sshd_config
 
+
+#starting dfs and yarn
 source .bashrc
 start-dfs.sh
 start-yarn.sh
-touch fromstart.txt
 
-
+# Formatting the filesystem
+hdfs namenode -format -force -nonInteractive
+hdfs dfs -mkdir /user/
+hdfs dfs -mkdir /user/matheus/
+hdfs dfs -mkdir /user/$USER
 
 
 

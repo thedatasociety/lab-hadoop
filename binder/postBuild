@@ -60,9 +60,6 @@ chmod 600 .ssh/etc/ssh/* -R
 # hadoop 3.*.*
 echo "export PDSH_RCMD_TYPE=ssh" >> ~/.bashrc
 
-#Starting sshd server
-/usr/sbin/sshd -f $(pwd)/resources/configs/ssh/sshd_config
-
 # Adding names to know hosts
 #Commands below stablish ssh connections to used host names/ips. This step avoids yes/no host confirmation.
 ssh -o "StrictHostKeyChecking no" $USER@localhost -p 8822 -C "exit" 
@@ -71,17 +68,14 @@ ssh -o "StrictHostKeyChecking no" $USER@0.0.0.0   -p 8822 -C "exit"
 # Adding ssh options to Hadoop via envvar
 #  connecting in a diferent port (-p 8822)
 #  avoiding host key checking (-o StrictHostKeyChecking=no)
-export HADOOP_SSH_OPTS= "-o StrictHostKeyChecking=no -p 8822"
-echo "export HADOOP_SSH_OPTS= \"-o StrictHostKeyChecking=no -p 8822\"" >> ~/.bashrc
+export HADOOP_SSH_OPTS="-o StrictHostKeyChecking=no -p 8822"
+echo "export HADOOP_SSH_OPTS=\"-o StrictHostKeyChecking=no -p 8822\"" >> ~/.bashrc
 export PDSH_RCMD_TYPE=ssh
 echo "export PDSH_RCMD_TYPE=ssh" >> ~/.bashrc
 
 # Copying configurations files to Hadoop folder 
 cp $(pwd)/resources/configs/hadoop/${HADOOP_VERSION}/core-site.xml   ${HADOOP_PATH}/etc/hadoop/
 cp $(pwd)/resources/configs/hadoop/${HADOOP_VERSION}/hdfs-site.xml   ${HADOOP_PATH}/etc/hadoop/
-
-# Formatting the filesystem
-${HADOOP_PATH}/bin/hdfs namenode -format -force -nonInteractive
 
 #Starting YARN in Pseudo-Distributed Mode
 cp $(pwd)/resources/configs/hadoop/${HADOOP_VERSION}/mapred-site.xml ${HADOOP_PATH}/etc/hadoop/
