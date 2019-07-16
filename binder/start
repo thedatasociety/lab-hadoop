@@ -15,21 +15,20 @@ cp $(pwd)/resources/configs/hadoop/${HADOOP_VERSION}/core-site.xml   ${HADOOP_PA
 cp $(pwd)/resources/configs/hadoop/${HADOOP_VERSION}/hdfs-site.xml   ${HADOOP_PATH}/etc/hadoop/
 
 # Formatting the filesystem
-${HADOOP_PATH}/bin/hdfs namenode -format -force -nonInteractive 
-sleep 1
+hdfs namenode -format -force -nonInteractive 
 
-${HADOOP_PATH}/sbin/start-dfs.sh 
-sleep 2
+start-dfs.sh 
+sleep 1
 
 #Copying YARN configurations for Pseudo-Distributed Mode
 cp $(pwd)/resources/configs/hadoop/${HADOOP_VERSION}/mapred-site.xml ${HADOOP_PATH}/etc/hadoop/ 
 cp $(pwd)/resources/configs/hadoop/${HADOOP_VERSION}/yarn-site.xml   ${HADOOP_PATH}/etc/hadoop/
-${HADOOP_PATH}/sbin/start-yarn.sh 
-sleep 2
+start-yarn.sh 
 
-${HADOOP_PATH}/bin/hdfs dfs -mkdir /user/
-${HADOOP_PATH}/bin/hdfs dfs -mkdir /user/matheus/
-${HADOOP_PATH}/bin/hdfs dfs -mkdir /user/$USER
+
+hdfs dfs -mkdir /user/
+hdfs dfs -mkdir /user/matheus/
+hdfs dfs -mkdir /user/$USER
 
 echo "${USER} $(pwd) ${HADOOP_PATH} ${HADOOP_VERSION}" > startresult.txt
 
