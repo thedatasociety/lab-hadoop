@@ -2,9 +2,9 @@
 
 #loading envvars
 #for auto load in mybinder:
-#source $(pwd)/.profile
+source $(pwd)/.profile
 #for manual start: run 
-source $(pwd)/.bashrc 
+#source $(pwd)/.bashrc 
 
 #Starting sshd server
 /usr/sbin/sshd -f $(pwd)/resources/configs/ssh/sshd_config 
