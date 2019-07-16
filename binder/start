@@ -1,9 +1,10 @@
 #!/bin/bash
 
 
-
+source .bashrc
+start-dfs.sh
+start-yarn.sh
 touch fromstart.txt
-
 
 
 
