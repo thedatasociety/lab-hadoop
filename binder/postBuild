@@ -4,24 +4,24 @@
 #          jupyter/jupyterlab extensions/kernels              #
 ###############################################################
 
-# sos installation
-python -m sos_notebook.install
-jupyter labextension install jupyterlab-sos --no-build 
+# # sos installation
+# python -m sos_notebook.install
+# jupyter labextension install jupyterlab-sos --no-build 
 
-# Beaker installation and extension
-beakerx install
-jupyter labextension install @jupyter-widgets/jupyterlab-manager --no-build 
-jupyter labextension install beakerx-jupyterlab --no-build 
+# # Beaker installation and extension
+# beakerx install
+# jupyter labextension install @jupyter-widgets/jupyterlab-manager --no-build 
+# jupyter labextension install beakerx-jupyterlab --no-build 
 
-# Table of contents Jupyter Lab Extension
-jupyter labextension install @jupyterlab/toc --no-build 
+# # Table of contents Jupyter Lab Extension
+# jupyter labextension install @jupyterlab/toc --no-build 
 
-# Jupyter/Jupyterlab extension for proxying internal applications
-jupyter serverextension enable --sys-prefix jupyter_server_proxy
-jupyter labextension install jupyterlab-server-proxy
+# # Jupyter/Jupyterlab extension for proxying internal applications
+# jupyter serverextension enable --sys-prefix jupyter_server_proxy
+# jupyter labextension install jupyterlab-server-proxy
 
-# Building everything up
-jupyter lab build --dev
+# # Building everything up
+# jupyter lab build --dev
 
 
 
@@ -68,10 +68,3 @@ echo "export HADOOP_SSH_OPTS=\"-o StrictHostKeyChecking=no -p 8822\"" >> ~/.bash
 export PDSH_RCMD_TYPE=ssh
 echo "export PDSH_RCMD_TYPE=ssh" >> ~/.bashrc
 
-# Copying configurations files to Hadoop folder 
-cp $(pwd)/resources/configs/hadoop/${HADOOP_VERSION}/core-site.xml   ${HADOOP_PATH}/etc/hadoop/
-cp $(pwd)/resources/configs/hadoop/${HADOOP_VERSION}/hdfs-site.xml   ${HADOOP_PATH}/etc/hadoop/
-
-#Copying YARN configurations for Pseudo-Distributed Mode
-cp $(pwd)/resources/configs/hadoop/${HADOOP_VERSION}/mapred-site.xml ${HADOOP_PATH}/etc/hadoop/
-cp $(pwd)/resources/configs/hadoop/${HADOOP_VERSION}/yarn-site.xml   ${HADOOP_PATH}/etc/hadoop/

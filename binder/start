@@ -1,11 +1,8 @@
 #!/bin/bash
 
-#starting dfs and yarn
-source .bashrc
-
 #Starting sshd server
 /usr/sbin/sshd -f $(pwd)/resources/configs/ssh/sshd_config
-sleep 5
+sleep 2
 # Adding names to know hosts. This step avoids yes/no host confirmation.
 ssh -o "StrictHostKeyChecking no" $USER@localhost -p 8822 -C "exit" 
 ssh -o "StrictHostKeyChecking no" $USER@0.0.0.0   -p 8822 -C "exit"
@@ -16,23 +13,22 @@ cp $(pwd)/resources/configs/hadoop/${HADOOP_VERSION}/hdfs-site.xml   ${HADOOP_PA
 
 # Formatting the filesystem
 hdfs namenode -format -force -nonInteractive
-sleep 5
+sleep 3
 
 start-dfs.sh 
-sleep 5
-
-hdfs dfs -mkdir /user/
-hdfs dfs -mkdir /user/matheus/
-hdfs dfs -mkdir /user/$USER
+sleep 3
 
 #Copying YARN configurations for Pseudo-Distributed Mode
 cp $(pwd)/resources/configs/hadoop/${HADOOP_VERSION}/mapred-site.xml ${HADOOP_PATH}/etc/hadoop/
 cp $(pwd)/resources/configs/hadoop/${HADOOP_VERSION}/yarn-site.xml   ${HADOOP_PATH}/etc/hadoop/
 start-yarn.sh 
-sleep 5
+sleep 3
 
+hdfs dfs -mkdir /user/
+hdfs dfs -mkdir /user/matheus/
+hdfs dfs -mkdir /user/$USER
 
-
+echo "dit it all" > startresult.txt
 
 
 
