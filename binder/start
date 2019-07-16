@@ -1,7 +1,10 @@
 #!/bin/bash
 
 #loading envvars
-source $(pwd)/.profile
+#for auto load in mybinder:
+#source $(pwd)/.profile
+#for manual start: run 
+source $(pwd)/.bashrc 
 
 #Starting sshd server
 /usr/sbin/sshd -f $(pwd)/resources/configs/ssh/sshd_config 
@@ -11,25 +14,24 @@ ssh -o "StrictHostKeyChecking no" $USER@localhost -p 8822 -C "exit"
 ssh -o "StrictHostKeyChecking no" $USER@0.0.0.0   -p 8822 -C "exit"
 
 # Copying configurations files to the Hadoop folder 
-cp $(pwd)/resources/configs/hadoop/${HADOOP_VERSION}/core-site.xml ${HADOOP_PATH}/etc/hadoop/ 
-cp $(pwd)/resources/configs/hadoop/${HADOOP_VERSION}/hdfs-site.xml ${HADOOP_PATH}/etc/hadoop/
+cp $(pwd)/resources/configs/hadoop/${HADOOP_VERSION}/core-site.xml ${HADOOP_HOME}/etc/hadoop/ 
+cp $(pwd)/resources/configs/hadoop/${HADOOP_VERSION}/hdfs-site.xml ${HADOOP_HOME}/etc/hadoop/
 
 # Formatting the filesystem
 hdfs namenode -format -force -nonInteractive >> /dev/null
 
-start-dfs.sh 
-
+start-dfs.sh                                                                                     && \
 #Copying YARN configurations for Pseudo-Distributed Mode
-cp $(pwd)/resources/configs/hadoop/${HADOOP_VERSION}/mapred-site.xml ${HADOOP_PATH}/etc/hadoop/ 
-cp $(pwd)/resources/configs/hadoop/${HADOOP_VERSION}/yarn-site.xml   ${HADOOP_PATH}/etc/hadoop/
-start-yarn.sh 
+cp $(pwd)/resources/configs/hadoop/${HADOOP_VERSION}/mapred-site.xml ${HADOOP_HOME}/etc/hadoop/  && \
+cp $(pwd)/resources/configs/hadoop/${HADOOP_VERSION}/yarn-site.xml   ${HADOOP_HOME}/etc/hadoop/  && \
 
-hdfs dfs -mkdir /user/
-# hdfs dfs -mkdir /user/matheus/
-# hdfs dfs -mkdir /user/$USER
+start-yarn.sh                                                                                    && \
 
-# echo "${USER} $(pwd) ${HADOOP_PATH} ${HADOOP_VERSION}" > startresult.txt
+hdfs dfs -mkdir /user/                                                                           && \
+hdfs dfs -mkdir /user/matheus/                                                                   && \
+hdfs dfs -mkdir /user/$USER                                                                      &
 
+# echo "${USER} $(pwd) ${HADOOP_HOME} ${HADOOP_VERSION}" > startresult.txt
 
 # DO NOT REMOVE(!) 
 # Here is why: https://mybinder.readthedocs.io/en/latest/config_files.html#start-run-code-before-the-user-sessions-starts
