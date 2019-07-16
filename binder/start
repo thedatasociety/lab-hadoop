@@ -1,5 +1,7 @@
 #!/bin/bash
 
+source $(pwd)/.bashrc
+
 #Starting sshd server
 /usr/sbin/sshd -f $(pwd)/resources/configs/ssh/sshd_config 
 sleep 1

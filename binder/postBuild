@@ -68,6 +68,3 @@ echo "export HADOOP_SSH_OPTS=\"-o StrictHostKeyChecking=no -p 8822\"" >> ~/.bash
 export PDSH_RCMD_TYPE=ssh
 echo "export PDSH_RCMD_TYPE=ssh" >> ~/.bashrc
 
-
-
-echo "$(pwd)/binder/start"     >> ~/.bashrc
