@@ -1,5 +1,6 @@
 #!/bin/bash
 
+#loading envvars
 source $(pwd)/.profile
 
 #Starting sshd server
@@ -11,8 +12,8 @@ ssh -o "StrictHostKeyChecking no" $USER@localhost -p 8822 -C "exit"
 ssh -o "StrictHostKeyChecking no" $USER@0.0.0.0   -p 8822 -C "exit"
 
 # Copying configurations files to the Hadoop folder 
-cp $(pwd)/resources/configs/hadoop/${HADOOP_VERSION}/core-site.xml   ${HADOOP_PATH}/etc/hadoop/ 
-cp $(pwd)/resources/configs/hadoop/${HADOOP_VERSION}/hdfs-site.xml   ${HADOOP_PATH}/etc/hadoop/
+cp $(pwd)/resources/configs/hadoop/${HADOOP_VERSION}/core-site.xml ${HADOOP_PATH}/etc/hadoop/ 
+cp $(pwd)/resources/configs/hadoop/${HADOOP_VERSION}/hdfs-site.xml ${HADOOP_PATH}/etc/hadoop/
 
 # Formatting the filesystem
 hdfs namenode -format -force -nonInteractive 
@@ -25,12 +26,11 @@ cp $(pwd)/resources/configs/hadoop/${HADOOP_VERSION}/mapred-site.xml ${HADOOP_PA
 cp $(pwd)/resources/configs/hadoop/${HADOOP_VERSION}/yarn-site.xml   ${HADOOP_PATH}/etc/hadoop/
 start-yarn.sh 
 
-
 hdfs dfs -mkdir /user/
 hdfs dfs -mkdir /user/matheus/
 hdfs dfs -mkdir /user/$USER
 
-echo "${USER} $(pwd) ${HADOOP_PATH} ${HADOOP_VERSION}" > startresult.txt
+# echo "${USER} $(pwd) ${HADOOP_PATH} ${HADOOP_VERSION}" > startresult.txt
 
 
 
