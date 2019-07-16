@@ -31,7 +31,13 @@
 ###############################################################
 
 export HADOOP_VERSION=2.9.2
+echo "export HADOOP_VERSION=${HADOOP_VERSION}" >> ~/.bashrc
+echo "export HADOOP_VERSION=${HADOOP_VERSION}" >> ~/.profile
+
 export HADOOP_PATH=$(pwd)/hadoop-2.9.2
+echo "export HADOOP_PATH=${HADOOP_PATH}"       >> ~/.bashrc
+echo "export HADOOP_PATH=${HADOOP_PATH}"       >> ~/.profile
+
 
 wget http://ftp.unicamp.br/pub/apache/hadoop/common/hadoop-${HADOOP_VERSION}/hadoop-${HADOOP_VERSION}.tar.gz -q 
 tar -xvf hadoop-${HADOOP_VERSION}.tar.gz >/dev/null 
@@ -39,12 +45,14 @@ rm       hadoop-${HADOOP_VERSION}.tar.gz
 
 export JAVA_HOME=/usr/lib/jvm/java-8-openjdk-amd64
 echo "export JAVA_HOME=/usr/lib/jvm/java-8-openjdk-amd64 " >> ~/.bashrc
+echo "export JAVA_HOME=/usr/lib/jvm/java-8-openjdk-amd64 " >> ~/.profile
 echo "export JAVA_HOME=/usr/lib/jvm/java-8-openjdk-amd64 " >> ${HADOOP_PATH}/etc/hadoop/hadoop-env.sh
 
-echo "export HADOOP_VERSION=${HADOOP_VERSION}" >> ~/.bashrc
-echo "export HADOOP_PATH=${HADOOP_PATH}"       >> ~/.bashrc
-echo "export PATH=\$PATH:\$HADOOP_PATH/bin"      >> ~/.bashrc
-echo "export PATH=\$PATH:\$HADOOP_PATH/sbin"     >> ~/.bashrc
+# adding bin and sbin to $path
+echo "export PATH=\$PATH:\$HADOOP_PATH/bin"  >> ~/.bashrc
+echo "export PATH=\$PATH:\$HADOOP_PATH/bin"  >> ~/.profile
+echo "export PATH=\$PATH:\$HADOOP_PATH/sbin" >> ~/.bashrc
+echo "export PATH=\$PATH:\$HADOOP_PATH/sbin" >> ~/.profile
 
 
 # creating ssh-related folders
@@ -58,13 +66,14 @@ ssh-keygen -A -f .ssh
 chmod 600 .ssh/etc/ssh/* -R
 
 # hadoop 3.*.*
+export PDSH_RCMD_TYPE=ssh
 echo "export PDSH_RCMD_TYPE=ssh" >> ~/.bashrc
+echo "export PDSH_RCMD_TYPE=ssh" >> ~/.profile
 
 # Adding ssh options to Hadoop via envvar
 #  connecting in a diferent port (-p 8822)
 #  avoiding host key checking (-o StrictHostKeyChecking=no)
 export HADOOP_SSH_OPTS="-o StrictHostKeyChecking=no -p 8822"
 echo "export HADOOP_SSH_OPTS=\"-o StrictHostKeyChecking=no -p 8822\"" >> ~/.bashrc
-export PDSH_RCMD_TYPE=ssh
-echo "export PDSH_RCMD_TYPE=ssh" >> ~/.bashrc
+echo "export HADOOP_SSH_OPTS=\"-o StrictHostKeyChecking=no -p 8822\"" >> ~/.profile
 

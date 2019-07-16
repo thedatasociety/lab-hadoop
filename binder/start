@@ -1,6 +1,6 @@
 #!/bin/bash
 
-source $(pwd)/.bashrc
+source $(pwd)/.profile
 
 #Starting sshd server
 /usr/sbin/sshd -f $(pwd)/resources/configs/ssh/sshd_config 
@@ -31,7 +31,7 @@ ${HADOOP_PATH}/bin/hdfs dfs -mkdir /user/
 ${HADOOP_PATH}/bin/hdfs dfs -mkdir /user/matheus/
 ${HADOOP_PATH}/bin/hdfs dfs -mkdir /user/$USER
 
-echo "${USER} ${HADOOP_PATH} $(pwd)" > startresult.txt
+echo "${USER} $(pwd) ${HADOOP_PATH} ${HADOOP_VERSION}" > startresult.txt
 
 
 
