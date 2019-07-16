@@ -77,6 +77,6 @@ echo "export PDSH_RCMD_TYPE=ssh" >> ~/.bashrc
 cp $(pwd)/resources/configs/hadoop/${HADOOP_VERSION}/core-site.xml   ${HADOOP_PATH}/etc/hadoop/
 cp $(pwd)/resources/configs/hadoop/${HADOOP_VERSION}/hdfs-site.xml   ${HADOOP_PATH}/etc/hadoop/
 
-#Starting YARN in Pseudo-Distributed Mode
+#Copying YARN configurations for Pseudo-Distributed Mode
 cp $(pwd)/resources/configs/hadoop/${HADOOP_VERSION}/mapred-site.xml ${HADOOP_PATH}/etc/hadoop/
 cp $(pwd)/resources/configs/hadoop/${HADOOP_VERSION}/yarn-site.xml   ${HADOOP_PATH}/etc/hadoop/
