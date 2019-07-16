@@ -7,6 +7,12 @@ echo "$(pwd)" > mywd.txt
 
 #Starting sshd server
 /usr/sbin/sshd -f $(pwd)/resources/configs/ssh/sshd_config
+sleep 10
+
+# Adding names to know hosts
+#Commands below stablish ssh connections to used host names/ips. This step avoids yes/no host confirmation.
+ssh -o "StrictHostKeyChecking no" $USER@localhost -p 8822 -C "exit" 
+ssh -o "StrictHostKeyChecking no" $USER@0.0.0.0   -p 8822 -C "exit"
 
 start-dfs.sh
 start-yarn.sh

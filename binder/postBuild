@@ -60,11 +60,6 @@ chmod 600 .ssh/etc/ssh/* -R
 # hadoop 3.*.*
 echo "export PDSH_RCMD_TYPE=ssh" >> ~/.bashrc
 
-# Adding names to know hosts
-#Commands below stablish ssh connections to used host names/ips. This step avoids yes/no host confirmation.
-ssh -o "StrictHostKeyChecking no" $USER@localhost -p 8822 -C "exit" 
-ssh -o "StrictHostKeyChecking no" $USER@0.0.0.0   -p 8822 -C "exit"
-
 # Adding ssh options to Hadoop via envvar
 #  connecting in a diferent port (-p 8822)
 #  avoiding host key checking (-o StrictHostKeyChecking=no)
