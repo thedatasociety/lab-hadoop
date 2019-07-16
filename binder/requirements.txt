@@ -13,7 +13,6 @@ sos-notebook
 jupyterlab
 jupyter_contrib_nbextensions
 jupyterlab_launcher
-jupyterlab-git
 ipywidgets
 
 jupyter-server-proxy
