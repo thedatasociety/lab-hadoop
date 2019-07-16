@@ -13,16 +13,29 @@ sleep 5
 ssh -o "StrictHostKeyChecking no" $USER@localhost -p 8822 -C "exit" 
 ssh -o "StrictHostKeyChecking no" $USER@0.0.0.0   -p 8822 -C "exit"
 
-#starting
-${HADOOP_PATH}/start-dfs.sh && sleep 15 && ${HADOOP_PATH}/start-yarn.sh && sleep 15
-
+# Copying configurations files to Hadoop folder 
+cp $(pwd)/resources/configs/hadoop/${HADOOP_VERSION}/core-site.xml   ${HADOOP_PATH}/etc/hadoop/
+cp $(pwd)/resources/configs/hadoop/${HADOOP_VERSION}/hdfs-site.xml   ${HADOOP_PATH}/etc/hadoop/
 
 # Formatting the filesystem
 hdfs namenode -format -force -nonInteractive
-sleep 10
+sleep 5
+
+${HADOOP_PATH}/start-dfs.sh 
+sleep 15
+
 hdfs dfs -mkdir /user/
 hdfs dfs -mkdir /user/matheus/
 hdfs dfs -mkdir /user/$USER
+
+#Copying YARN configurations for Pseudo-Distributed Mode
+cp $(pwd)/resources/configs/hadoop/${HADOOP_VERSION}/mapred-site.xml ${HADOOP_PATH}/etc/hadoop/
+cp $(pwd)/resources/configs/hadoop/${HADOOP_VERSION}/yarn-site.xml   ${HADOOP_PATH}/etc/hadoop/
+${HADOOP_PATH}/start-yarn.sh && sleep 15
+
+
+
+
 
 
 
