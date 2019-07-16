@@ -44,10 +44,11 @@ export JAVA_HOME=/usr/lib/jvm/java-8-openjdk-amd64
 echo "export JAVA_HOME=/usr/lib/jvm/java-8-openjdk-amd64 " >> ~/.bashrc
 # echo "export JAVA_HOME=/usr/lib/jvm/java-8-openjdk-amd64 " >> ~/.profile
 echo "export JAVA_HOME=/usr/lib/jvm/java-8-openjdk-amd64 " >> ${HADOOP_PATH}/etc/hadoop/hadoop-env.sh
-echo "export PATH=${PATH}:${HADOOP_PATH/bin}  " >> ~/.bashrc
-echo "export PATH=${PATH}:${HADOOP_PATH/sbin} " >> ~/.bashrc
-# echo "export PATH=${PATH}:${HADOOP_PATH/bin}  " >> ~/.profile
-# echo "export PATH=${PATH}:${HADOOP_PATH/sbin} " >> ~/.profile
+echo "export PATH=${PATH}:${HADOOP_PATH}/bin"  >> ~/.bashrc
+echo "export PATH=${PATH}:${HADOOP_PATH}/sbin" >> ~/.bashrc
+echo "export HADOOP_VERSION=${HADOOP_VERSION}" >> ~/.bashrc
+echo "export HADOOP_PATH=${HADOOP_PATH}"       >> ~/.bashrc
+
 
 
 # creating ssh-related folders
