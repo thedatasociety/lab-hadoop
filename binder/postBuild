@@ -89,7 +89,7 @@ echo "export HIVE_HOME=${HIVE_HOME}"       >> ~/.bashrc
 echo "export HIVE_HOME=${HIVE_HOME}"       >> ~/.profile
 
 
-wget http://ftp.unicamp.br/pub/apache/hive/${HIVE_VERSION}/apache-hive-${HIVE_VERSION}-bin.tar.gz -q
+wget http://ftp.unicamp.br/pub/apache/hive/hive-${HIVE_VERSION}/apache-hive-${HIVE_VERSION}-bin.tar.gz -q
 tar -xvf apache-hive-${HIVE_VERSION}-bin.tar.gz >/dev/null 
 rm       apache-hive-${HIVE_VERSION}-bin.tar.gz
 
