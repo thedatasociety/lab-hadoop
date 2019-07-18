@@ -5,7 +5,7 @@ cp ./resources/configs/hive/${HIVE_VERSION}/beeline-log4j2.properties ${HIVE_HOM
 cp ./resources/configs/hive/${HIVE_VERSION}/hive-site.xml             ${HIVE_HOME}/conf/
 
 #hack to make metastore_db within HIVE_HOME. 
-sed -i 's/HIVE_HOME/${HIVE_HOME}/g' ${HIVE_HOME}/conf/hive-site.xml
+sed -i "s~HIVE_HOME~$HIVE_HOME~g" ${HIVE_HOME}/conf/hive-site.xml
 
 # deleting slf4j lib. Hive will automatically use slf4j-log4j jar file present in Hadoop
 rm ${HIVE_HOME}/lib/log4j-slf4j-impl-2.6.2.jar
