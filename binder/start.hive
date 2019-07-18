@@ -1,4 +1,8 @@
 #!/bin/bash
 
+#setting log level higher for less verbosity
+cp ./resources/configs/hive/${HIVE_VERSION}/beeline-log4j2.properties ${HIVE_HOME}/conf/
+
 #Starting from Hive 2.1, we need to run the schematool command below as an initialization step.
 schematool -dbType derby -initSchema
+
