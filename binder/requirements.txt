@@ -18,6 +18,11 @@ ipywidgets
 
 jupyter-server-proxy
 
+
+
 ###############################################################
-#          /jupyter/jupyterlab extensions/kernels              #
+#                   Hadoop Processing                         #
 ###############################################################
+
+mrjob
+google-api-python-client
