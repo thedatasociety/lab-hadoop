@@ -34,7 +34,7 @@ export HADOOP_VERSION=2.9.2
 echo "export HADOOP_VERSION=${HADOOP_VERSION}" >> ~/.bashrc
 echo "export HADOOP_VERSION=${HADOOP_VERSION}" >> ~/.profile
 
-export HADOOP_HOME=$(pwd)/hadoop-2.9.2
+export HADOOP_HOME=$(pwd)/hadoop-${HADOOP_VERSION}
 echo "export HADOOP_HOME=${HADOOP_HOME}"       >> ~/.bashrc
 echo "export HADOOP_HOME=${HADOOP_HOME}"       >> ~/.profile
 
@@ -75,3 +75,24 @@ echo "export PDSH_RCMD_TYPE=ssh" >> ~/.profile
 export HADOOP_SSH_OPTS="-o StrictHostKeyChecking=no -p 8822"
 echo "export HADOOP_SSH_OPTS=\"-o StrictHostKeyChecking=no -p 8822\"" >> ~/.bashrc
 echo "export HADOOP_SSH_OPTS=\"-o StrictHostKeyChecking=no -p 8822\"" >> ~/.profile
+
+###############################################################
+#               hive related commands                         #
+###############################################################
+
+export HIVE_VERSION=2.3.5
+echo "export HIVE_VERSION=${HIVE_VERSION}" >> ~/.bashrc
+echo "export HIVE_VERSION=${HIVE_VERSION}" >> ~/.profile
+
+export HIVE_HOME=$(pwd)/apache-hive-${HIVE_VERSION}-bin
+echo "export HIVE_HOME=${HIVE_HOME}"       >> ~/.bashrc
+echo "export HIVE_HOME=${HIVE_HOME}"       >> ~/.profile
+
+
+wget http://ftp.unicamp.br/pub/apache/hive/${HIVE_VERSION}/apache-hive-${HIVE_VERSION}-bin.tar.gz -q
+tar -xvf apache-hive-${HIVE_VERSION}-bin.tar.gz >/dev/null 
+rm       apache-hive-${HIVE_VERSION}-bin.tar.gz
+
+# adding bin and sbin to $path
+echo "export PATH=\$PATH:\$HIVE_HOME/bin"  >> ~/.bashrc
+echo "export PATH=\$PATH:\$HIVE_HOME/bin"  >> ~/.profile

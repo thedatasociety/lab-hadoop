@@ -1,0 +1,4 @@
+#!/bin/bash
+
+#Starting from Hive 2.1, we need to run the schematool command below as an initialization step.
+schematool -dbType derby -initSchema
