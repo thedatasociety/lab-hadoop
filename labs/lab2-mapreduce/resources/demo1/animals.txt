@@ -1,0 +1,14 @@
+wolf
+monkey
+giraffe
+elephant
+kangaroo
+lion
+giraffe
+wolf
+kangaroo
+wolf
+monkey
+lion
+lion
+zebra
