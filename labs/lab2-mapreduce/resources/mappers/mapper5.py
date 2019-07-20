@@ -1,3 +1,5 @@
+#!/usr/bin/env python
+
 import sys
 
 for index, line in enumerate(sys.stdin):
@@ -6,4 +8,4 @@ for index, line in enumerate(sys.stdin):
 
     # skiping header
     if index  > 0:
-        print("{}\t{}".format(words[int(sys.argv[1])], 1))
+        print("total,{}".format(words[1]))
