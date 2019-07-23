@@ -3,9 +3,10 @@
 
 chmod +x ./binder/start.hadoop 
 chmod +x ./binder/start.hive 
+chmod +x ./binder/start.mariadb 
 
 
-./binder/start.hadoop && ./binder/start.hive &
+./binder/start.hadoop && ./binder/start.hive && ./binder/start.mariadb &
 
 
 # DO NOT REMOVE(!) 

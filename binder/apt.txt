@@ -7,3 +7,7 @@ curl
 wget
 net-tools
 openjdk-8-jdk
+
+# mysql/mariadb packages
+libaio1 
+libaio-dev
