@@ -39,9 +39,9 @@ echo "export HADOOP_HOME=${HADOOP_HOME}"       >> ~/.bashrc
 echo "export HADOOP_HOME=${HADOOP_HOME}"       >> ~/.profile
 
 
-wget http://ftp.unicamp.br/pub/apache/hadoop/common/hadoop-${HADOOP_VERSION}/hadoop-${HADOOP_VERSION}.tar.gz -q 
-tar -xvf hadoop-${HADOOP_VERSION}.tar.gz >/dev/null 
-rm       hadoop-${HADOOP_VERSION}.tar.gz
+wget http://ftp.unicamp.br/pub/apache/hadoop/common/hadoop-${HADOOP_VERSION}/hadoop-${HADOOP_VERSION}.tar.gz -q   && \
+tar -xvf hadoop-${HADOOP_VERSION}.tar.gz >/dev/null && \
+rm       hadoop-${HADOOP_VERSION}.tar.gz            && \
 
 export JAVA_HOME=/usr/lib/jvm/java-8-openjdk-amd64
 echo "export JAVA_HOME=/usr/lib/jvm/java-8-openjdk-amd64 " >> ~/.bashrc
@@ -87,14 +87,15 @@ export HIVE_VERSION=2.3.5
 echo "export HIVE_VERSION=${HIVE_VERSION}" >> ~/.bashrc
 echo "export HIVE_VERSION=${HIVE_VERSION}" >> ~/.profile
 
-export HIVE_HOME=$(pwd)/apache-hive-${HIVE_VERSION}-bin
+export HIVE_HOME=$(pwd)/hive-${HIVE_VERSION}
 echo "export HIVE_HOME=${HIVE_HOME}"       >> ~/.bashrc
 echo "export HIVE_HOME=${HIVE_HOME}"       >> ~/.profile
 
 
-wget http://ftp.unicamp.br/pub/apache/hive/hive-${HIVE_VERSION}/apache-hive-${HIVE_VERSION}-bin.tar.gz -q
-tar -xvf apache-hive-${HIVE_VERSION}-bin.tar.gz >/dev/null 
-rm       apache-hive-${HIVE_VERSION}-bin.tar.gz
+wget http://ftp.unicamp.br/pub/apache/hive/hive-${HIVE_VERSION}/apache-hive-${HIVE_VERSION}-bin.tar.gz -q  && \
+tar -xvf apache-hive-${HIVE_VERSION}-bin.tar.gz >> /dev/null         && \
+rm       apache-hive-${HIVE_VERSION}-bin.tar.gz                      && \
+mv       apache-hive-${HIVE_VERSION}-bin        hive-${HIVE_VERSION}      
 
 # adding bin and sbin to $path
 echo "export PATH=\$PATH:\$HIVE_HOME/bin"  >> ~/.bashrc
@@ -136,10 +137,10 @@ export MYSQL_HOME=$(pwd)/mysql-${MYSQL_VERSION}
 echo "export MYSQL_HOME=${MYSQL_HOME}"       >> ~/.bashrc
 echo "export MYSQL_HOME=${MYSQL_HOME}"       >> ~/.profile
 
-wget https://cdn.mysql.com//Downloads/MySQL-8.0/mysql-${MYSQL_VERSION}-linux-x86_64-minimal.tar.xz
+wget https://cdn.mysql.com//Downloads/MySQL-8.0/mysql-${MYSQL_VERSION}-linux-x86_64-minimal.tar.xz -q  && \
 tar -xf mysql-${MYSQL_VERSION}-linux-x86_64-minimal.tar.xz      >> /dev/null  && \
 rm      mysql-${MYSQL_VERSION}-linux-x86_64-minimal.tar.xz                    && \
-mv      mysql-${MYSQL_VERSION}-linux-x86_64-minimal mysql-${MYSQL_VERSION} 
+mv      mysql-${MYSQL_VERSION}-linux-x86_64-minimal        mysql-${MYSQL_VERSION} 
 
 # adding bin/ to $path
 echo "export PATH=\$PATH:\$MYSQL_HOME/bin"   >> ~/.bashrc
@@ -160,11 +161,34 @@ export SQOOP_HOME=$(pwd)/sqoop-${SQOOP_VERSION}
 echo "export SQOOP_HOME=${SQOOP_HOME}"       >> ~/.bashrc
 echo "export SQOOP_HOME=${SQOOP_HOME}"       >> ~/.profile
 
-wget http://ftp.unicamp.br/pub/apache/sqoop/${SQOOP_VERSION}/sqoop-${SQOOP_VERSION}.bin__hadoop-2.6.0.tar.gz -q --show-progress && \
+wget http://ftp.unicamp.br/pub/apache/sqoop/${SQOOP_VERSION}/sqoop-${SQOOP_VERSION}.bin__hadoop-2.6.0.tar.gz -q  && \
 tar -xf sqoop-${SQOOP_VERSION}.bin__hadoop-2.6.0.tar.gz      >> /dev/null  && \
 rm      sqoop-${SQOOP_VERSION}.bin__hadoop-2.6.0.tar.gz                    && \
-mv      sqoop-${SQOOP_VERSION}.bin__hadoop-2.6.0.tar.gz sqoop-${SQOOP_VERSION} 
+mv      sqoop-${SQOOP_VERSION}.bin__hadoop-2.6.0        sqoop-${SQOOP_VERSION} 
 
 # adding bin/ to $path
 echo "export PATH=\$PATH:\$SQOOP_HOME/bin"   >> ~/.bashrc
 echo "export PATH=\$PATH:\$SQOOP_HOME/bin"   >> ~/.profile
+
+
+
+
+###############################################################
+#                 hbase related commands                      #
+###############################################################
+
+export HBASE_VERSION=2.2.0
+echo "export HBASE_VERSION=${HBASE_VERSION}" >> ~/.bashrc
+echo "export HBASE_VERSION=${HBASE_VERSION}" >> ~/.profile
+
+export HBASE_HOME=$(pwd)/hbase-${HBASE_VERSION}
+echo "export HBASE_HOME=${HBASE_HOME}"       >> ~/.bashrc
+echo "export HBASE_HOME=${HBASE_HOME}"       >> ~/.profile
+
+wget http://ftp.unicamp.br/pub/apache/hbase/${HBASE_VERSION}/hbase-${HBASE_VERSION}-bin.tar.gz -q  && \
+tar -xf hbase-${HBASE_VERSION}-bin.tar.gz    >> /dev/null  && \
+rm      hbase-${HBASE_VERSION}-bin.tar.gz                    
+
+# adding bin/ to $path
+echo "export PATH=\$PATH:\$HBASE_HOME/bin"   >> ~/.bashrc
+echo "export PATH=\$PATH:\$HBASE_HOME/bin"   >> ~/.profile
