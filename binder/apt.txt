@@ -11,3 +11,5 @@ openjdk-8-jdk
 # mysql/mariadb packages
 libaio1 
 libaio-dev
+numactl
+libncurses5
