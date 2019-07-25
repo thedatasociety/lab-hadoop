@@ -144,3 +144,27 @@ mv      mysql-${MYSQL_VERSION}-linux-x86_64-minimal mysql-${MYSQL_VERSION}
 # adding bin/ to $path
 echo "export PATH=\$PATH:\$MYSQL_HOME/bin"   >> ~/.bashrc
 echo "export PATH=\$PATH:\$MYSQL_HOME/bin"   >> ~/.profile
+
+
+
+
+###############################################################
+#                 sqoop related commands                      #
+###############################################################
+
+export SQOOP_VERSION=1.4.7
+echo "export SQOOP_VERSION=${SQOOP_VERSION}" >> ~/.bashrc
+echo "export SQOOP_VERSION=${SQOOP_VERSION}" >> ~/.profile
+
+export SQOOP_HOME=$(pwd)/sqoop-${SQOOP_VERSION}
+echo "export SQOOP_HOME=${SQOOP_HOME}"       >> ~/.bashrc
+echo "export SQOOP_HOME=${SQOOP_HOME}"       >> ~/.profile
+
+wget http://ftp.unicamp.br/pub/apache/sqoop/${SQOOP_VERSION}/sqoop-${SQOOP_VERSION}.bin__hadoop-2.6.0.tar.gz -q --show-progress && \
+tar -xf sqoop-${SQOOP_VERSION}.bin__hadoop-2.6.0.tar.gz      >> /dev/null  && \
+rm      sqoop-${SQOOP_VERSION}.bin__hadoop-2.6.0.tar.gz                    && \
+mv      sqoop-${SQOOP_VERSION}.bin__hadoop-2.6.0.tar.gz sqoop-${SQOOP_VERSION} 
+
+# adding bin/ to $path
+echo "export PATH=\$PATH:\$SQOOP_HOME/bin"   >> ~/.bashrc
+echo "export PATH=\$PATH:\$SQOOP_HOME/bin"   >> ~/.profile
