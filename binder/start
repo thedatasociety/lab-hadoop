@@ -8,7 +8,7 @@ chmod +x ./binder/start.hbase
 #chmod +x ./binder/start.mariadb 
 
 
-./binder/start.hadoop && ./binder/start.mysql && ./binder/start.hive && ./binder/start.hbase &
+./binder/start.hadoop && sleep 3 && ./binder/start.hive &&  sleep 3 && ./binder/start.hbase && ./binder/start.mysql  &
 
 
 # DO NOT REMOVE(!) 

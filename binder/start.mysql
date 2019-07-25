@@ -5,9 +5,9 @@
 $MYSQL_HOME/bin/mysqld  --user='${USER}' --initialize-insecure --skip-grant-tables
 
 cd     ${MYSQL_HOME}                  && \
-nohup  ${MYSQL_HOME}/bin/mysqld_safe  &
+nohup  ${MYSQL_HOME}/bin/mysqld_safe &
 
-sleep 3
+sleep 5
 
 $MYSQL_HOME/bin/mysql -u root -e "CREATE USER '${USER}'@'localhost';"
 $MYSQL_HOME/bin/mysql -u root -e "GRANT ALL PRIVILEGES ON *.* TO '${USER}'@'localhost';"
