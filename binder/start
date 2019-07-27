@@ -1,14 +1,22 @@
 #!/bin/bash
 
 
-chmod +x ./binder/start.hadoop 
-chmod +x ./binder/start.hive 
-chmod +x ./binder/start.mysql 
-chmod +x ./binder/start.hbase 
-#chmod +x ./binder/start.mariadb 
+chmod +x ~/binder/start.hadoop 
+chmod +x ~/binder/start.hive 
+chmod +x ~/binder/start.mysql 
+chmod +x ~/binder/start.hbase 
+#chmod +x ~/binder/start.mariadb 
 
+# starting mysql in parallel
+~/binder/start.mysql   &
 
-./binder/start.hadoop && sleep 3 && ./binder/start.hive &&  sleep 3 && ./binder/start.hbase && ./binder/start.mysql  &
+~/binder/start.hadoop  && \
+sleep 3                && \
+~/binder/start.hive    && \
+sleep 3                && \
+~/binder/start.hbase   && \
+touch ready.txt         &
+
 
 
 # DO NOT REMOVE(!) 

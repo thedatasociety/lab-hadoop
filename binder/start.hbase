@@ -3,7 +3,7 @@
 # deleting slf4j lib. Hive will automatically use slf4j-log4j jar file present in Hadoop
 rm ${HBASE_HOME}/lib/client-facing-thirdparty/slf4j-log4j12-1.7.25.jar
 
-cp ./resources/configs/hbase/${HBASE_VERSION}/hbase-site.xml  ${HBASE_HOME}/conf/
+cp ~/resources/configs/hbase/${HBASE_VERSION}/hbase-site.xml  ${HBASE_HOME}/conf/
 
 hdfs dfs -mkdir /hbase
 
