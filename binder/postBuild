@@ -23,11 +23,15 @@ jupyter labextension install jupyterlab-server-proxy --no-build
 # Building everything up
 jupyter lab build --dev
 
+###############################################################
+#             moving to a local installation folder           #
+###############################################################
 
-
+mkdir ~/resources/local
+cd    ~/resources/local
 
 ###############################################################
-#             hadoop related commands                         #
+#             hadoop-related commands                         #
 ###############################################################
 
 export HADOOP_VERSION=2.9.2
@@ -40,8 +44,8 @@ echo "export HADOOP_HOME=${HADOOP_HOME}"       >> ~/.profile
 
 
 wget http://ftp.unicamp.br/pub/apache/hadoop/common/hadoop-${HADOOP_VERSION}/hadoop-${HADOOP_VERSION}.tar.gz -q   && \
-tar -xvf hadoop-${HADOOP_VERSION}.tar.gz >/dev/null && \
-rm       hadoop-${HADOOP_VERSION}.tar.gz            && \
+tar -xvf hadoop-${HADOOP_VERSION}.tar.gz >> /dev/null                                                             && \
+rm       hadoop-${HADOOP_VERSION}.tar.gz              
 
 export JAVA_HOME=/usr/lib/jvm/java-8-openjdk-amd64
 echo "export JAVA_HOME=/usr/lib/jvm/java-8-openjdk-amd64 " >> ~/.bashrc
@@ -55,14 +59,14 @@ echo "export PATH=\$PATH:\$HADOOP_HOME/sbin" >> ~/.bashrc
 echo "export PATH=\$PATH:\$HADOOP_HOME/sbin" >> ~/.profile
 
 # creating ssh-related folders
-mkdir .ssh/etc/ssh -p
+mkdir ~/.ssh/etc/ssh -p
 
 # setup passphraseless ssh (forcing the adding to know hosts)
 ssh-keygen -t rsa -P '' -f ~/.ssh/id_rsa  &&   cat ~/.ssh/id_rsa.pub >> ~/.ssh/authorized_keys && chmod 0600 ~/.ssh/authorized_keys 
 
 # generating keys for sshd server
-ssh-keygen -A -f .ssh 
-chmod 600 .ssh/etc/ssh/* -R
+ssh-keygen -A -f ~/.ssh 
+chmod 600 ~/.ssh/etc/ssh/* -R
 
 # hadoop 3.*.*
 export PDSH_RCMD_TYPE=ssh
@@ -70,8 +74,8 @@ echo "export PDSH_RCMD_TYPE=ssh" >> ~/.bashrc
 echo "export PDSH_RCMD_TYPE=ssh" >> ~/.profile
 
 # Adding ssh options to Hadoop via envvar
-#  connecting in a diferent port (-p 8822)
-#  avoiding host key checking (-o StrictHostKeyChecking=no)
+# connecting in a diferent port (-p 8822)
+# avoiding host key checking (-o StrictHostKeyChecking=no)
 export HADOOP_SSH_OPTS="-o StrictHostKeyChecking=no -p 8822"
 echo "export HADOOP_SSH_OPTS=\"-o StrictHostKeyChecking=no -p 8822\"" >> ~/.bashrc
 echo "export HADOOP_SSH_OPTS=\"-o StrictHostKeyChecking=no -p 8822\"" >> ~/.profile
@@ -80,7 +84,7 @@ echo "export HADOOP_SSH_OPTS=\"-o StrictHostKeyChecking=no -p 8822\"" >> ~/.prof
 
 
 ###############################################################
-#               hive related commands                         #
+#               hive-related commands                         #
 ###############################################################
 
 export HIVE_VERSION=2.3.5
@@ -93,8 +97,8 @@ echo "export HIVE_HOME=${HIVE_HOME}"       >> ~/.profile
 
 
 wget http://ftp.unicamp.br/pub/apache/hive/hive-${HIVE_VERSION}/apache-hive-${HIVE_VERSION}-bin.tar.gz -q  && \
-tar -xvf apache-hive-${HIVE_VERSION}-bin.tar.gz >> /dev/null         && \
-rm       apache-hive-${HIVE_VERSION}-bin.tar.gz                      && \
+tar -xvf apache-hive-${HIVE_VERSION}-bin.tar.gz >> /dev/null                                               && \
+rm       apache-hive-${HIVE_VERSION}-bin.tar.gz                                                            && \
 mv       apache-hive-${HIVE_VERSION}-bin        hive-${HIVE_VERSION}      
 
 # adding bin and sbin to $path
@@ -105,7 +109,7 @@ echo "export PATH=\$PATH:\$HIVE_HOME/bin"  >> ~/.profile
 
 
 ###############################################################
-#             mysql/mariadb related commands                  #
+#             mysql/mariadb-related commands                  #
 ###############################################################
 
 # export MARIADB_VERSION=10.4.6
@@ -126,7 +130,7 @@ echo "export PATH=\$PATH:\$HIVE_HOME/bin"  >> ~/.profile
 # echo "export PATH=\$PATH:\$MARIADB_HOME/bin"     >> ~/.profile
 
 ###############################################################
-#             mysql minimal related commands                  #
+#             mysql minimal-related commands                  #
 ###############################################################
 
 export MYSQL_VERSION=8.0.17
@@ -138,8 +142,8 @@ echo "export MYSQL_HOME=${MYSQL_HOME}"       >> ~/.bashrc
 echo "export MYSQL_HOME=${MYSQL_HOME}"       >> ~/.profile
 
 wget https://cdn.mysql.com//Downloads/MySQL-8.0/mysql-${MYSQL_VERSION}-linux-x86_64-minimal.tar.xz -q  && \
-tar -xf mysql-${MYSQL_VERSION}-linux-x86_64-minimal.tar.xz      >> /dev/null  && \
-rm      mysql-${MYSQL_VERSION}-linux-x86_64-minimal.tar.xz                    && \
+tar -xf mysql-${MYSQL_VERSION}-linux-x86_64-minimal.tar.xz >> /dev/null                                && \
+rm      mysql-${MYSQL_VERSION}-linux-x86_64-minimal.tar.xz                                             && \
 mv      mysql-${MYSQL_VERSION}-linux-x86_64-minimal        mysql-${MYSQL_VERSION} 
 
 # adding bin/ to $path
@@ -150,7 +154,7 @@ echo "export PATH=\$PATH:\$MYSQL_HOME/bin"   >> ~/.profile
 
 
 ###############################################################
-#                 sqoop related commands                      #
+#                 sqoop-related commands                      #
 ###############################################################
 
 export SQOOP_VERSION=1.4.7
@@ -162,8 +166,8 @@ echo "export SQOOP_HOME=${SQOOP_HOME}"       >> ~/.bashrc
 echo "export SQOOP_HOME=${SQOOP_HOME}"       >> ~/.profile
 
 wget http://ftp.unicamp.br/pub/apache/sqoop/${SQOOP_VERSION}/sqoop-${SQOOP_VERSION}.bin__hadoop-2.6.0.tar.gz -q  && \
-tar -xf sqoop-${SQOOP_VERSION}.bin__hadoop-2.6.0.tar.gz      >> /dev/null  && \
-rm      sqoop-${SQOOP_VERSION}.bin__hadoop-2.6.0.tar.gz                    && \
+tar -xf sqoop-${SQOOP_VERSION}.bin__hadoop-2.6.0.tar.gz >> /dev/null                                             && \
+rm      sqoop-${SQOOP_VERSION}.bin__hadoop-2.6.0.tar.gz                                                          && \
 mv      sqoop-${SQOOP_VERSION}.bin__hadoop-2.6.0        sqoop-${SQOOP_VERSION} 
 
 # adding bin/ to $path
@@ -174,7 +178,7 @@ echo "export PATH=\$PATH:\$SQOOP_HOME/bin"   >> ~/.profile
 
 
 ###############################################################
-#                 hbase related commands                      #
+#                 hbase-related commands                      #
 ###############################################################
 
 export HBASE_VERSION=2.2.0
@@ -186,7 +190,7 @@ echo "export HBASE_HOME=${HBASE_HOME}"       >> ~/.bashrc
 echo "export HBASE_HOME=${HBASE_HOME}"       >> ~/.profile
 
 wget http://ftp.unicamp.br/pub/apache/hbase/${HBASE_VERSION}/hbase-${HBASE_VERSION}-bin.tar.gz -q  && \
-tar -xf hbase-${HBASE_VERSION}-bin.tar.gz    >> /dev/null  && \
+tar -xf hbase-${HBASE_VERSION}-bin.tar.gz    >> /dev/null                                          && \
 rm      hbase-${HBASE_VERSION}-bin.tar.gz                    
 
 # adding bin/ to $path
