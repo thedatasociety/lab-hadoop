@@ -15,7 +15,6 @@ for line in sys.stdin:
     key,value = line.split(sys.argv[1])
     value = float(value)
 
-
     values.append(value)
 
 print( "len{1}{2}".format(current_key, sys.argv[1] , len(values) ) )   
