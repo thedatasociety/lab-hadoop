@@ -45,8 +45,7 @@ A laboratory for learning Hadoop.
 ### Launching this laboratory on a [binderhub](https://github.com/jupyterhub/binderhub) instance
 
 [Binderhub](https://github.com/jupyterhub/binderhub) uses [repo2docker](https://github.com/jupyter/repo2docker) for launching and serving the computational environments. The list below contains the known binderhub instances.
-- [gke.mybinder.org](gke.mybinder.org)
-- [ovh.mybinder.org](ovh.mybinder.org)
+- [mybinder.org](mybinder.org)
 - [binder.gesis.org](binder.gesis.org)
 - [binder.pangeo.io](binder.pangeo.io)
 
