@@ -87,7 +87,7 @@ echo "export HADOOP_SSH_OPTS=\"-o StrictHostKeyChecking=no -p 8822\"" >> ~/.prof
 #               hive-related commands                         #
 ###############################################################
 
-export HIVE_VERSION=2.3.5
+export HIVE_VERSION=2.3.6
 echo "export HIVE_VERSION=${HIVE_VERSION}" >> ~/.bashrc
 echo "export HIVE_VERSION=${HIVE_VERSION}" >> ~/.profile
 
