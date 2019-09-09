@@ -196,3 +196,27 @@ rm      hbase-${HBASE_VERSION}-bin.tar.gz
 # adding bin/ to $path
 echo "export PATH=\$PATH:\$HBASE_HOME/bin"   >> ~/.bashrc
 echo "export PATH=\$PATH:\$HBASE_HOME/bin"   >> ~/.profile
+
+
+
+
+###############################################################
+#                 flume-related commands                      #
+###############################################################
+
+export FLUME_VERSION=1.9.0
+echo "export FLUME_VERSION=${FLUME_VERSION}" >> ~/.bashrc
+echo "export FLUME_VERSION=${FLUME_VERSION}" >> ~/.profile
+
+export FLUME_HOME=$(pwd)/flume-${FLUME_VERSION}
+echo "export FLUME_HOME=${FLUME_HOME}"       >> ~/.bashrc
+echo "export FLUME_HOME=${FLUME_HOME}"       >> ~/.profile
+
+wget http://ftp.unicamp.br/pub/apache/flume/${FLUME_VERSION}/apache-flume-${FLUME_VERSION}-bin.tar.gz -q && \
+tar -xf apache-flume-${FLUME_VERSION}-bin.tar.gz > /dev/null                                             && \
+rm      apache-flume-1.9.0-bin.tar.gz                                                                    && \
+mv      apache-flume-${FLUME_VERSION}-bin        flume-${FLUME_VERSION} 
+
+# adding bin/ to $path
+echo "export PATH=\$PATH:\$FLUME_HOME/bin"   >> ~/.bashrc
+echo "export PATH=\$PATH:\$FLUME_HOME/bin"   >> ~/.profile
