@@ -17,8 +17,8 @@ sleep 3                		&& \
 ~/binder/start.hbase   		&& \
 sleep 3                		&& \
 ~/binder/start.zookeeper    && \
-#sleep 3                		&& \
-#~/binder/start.kafka   		&& \
+sleep 3                		&& \
+~/binder/start.kafka   		&& \
 touch ready.txt         	&
 
 

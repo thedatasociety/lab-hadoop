@@ -232,8 +232,8 @@ echo "export KAFKA_VERSION=${KAFKA_VERSION}" >> ~/.bashrc
 echo "export KAFKA_VERSION=${KAFKA_VERSION}" >> ~/.profile
 
 export KAFKA_HOME=$(pwd)/kafka-${KAFKA_VERSION}
-echo "export KAFKA_VERSION=${KAFKA_HOME}" >> ~/.bashrc
-echo "export KAFKA_VERSION=${KAFKA_HOME}" >> ~/.profile
+echo "export KAFKA_HOME=${KAFKA_HOME}" >> ~/.bashrc
+echo "export KAFKA_HOME=${KAFKA_HOME}" >> ~/.profile
 
 wget https://www-eu.apache.org/dist/kafka/${KAFKA_VERSION}/kafka_2.12-${KAFKA_VERSION}.tgz -q 	    && \
 tar -xvf kafka_2.12-${KAFKA_VERSION}.tgz > /dev/null 										 		&& \
