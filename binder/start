@@ -8,14 +8,18 @@ chmod +x ~/binder/start.hbase
 #chmod +x ~/binder/start.mariadb 
 
 # starting mysql in parallel
-~/binder/start.mysql   &
+~/binder/start.mysql   		&
 
-~/binder/start.hadoop  && \
-sleep 3                && \
-~/binder/start.hive    && \
-sleep 3                && \
-~/binder/start.hbase   && \
-touch ready.txt         &
+~/binder/start.hadoop  		&& \
+sleep 3                		&& \
+~/binder/start.hive    		&& \
+sleep 3                		&& \
+~/binder/start.hbase   		&& \
+sleep 3                		&& \
+~/binder/start.zookeeper    && \
+sleep 3                		&& \
+~/binder/start.kafka   		&& \
+touch ready.txt         	&
 
 
 

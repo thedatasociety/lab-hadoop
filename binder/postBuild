@@ -220,3 +220,26 @@ mv      apache-flume-${FLUME_VERSION}-bin        flume-${FLUME_VERSION}
 # adding bin/ to $path
 echo "export PATH=\$PATH:\$FLUME_HOME/bin"   >> ~/.bashrc
 echo "export PATH=\$PATH:\$FLUME_HOME/bin"   >> ~/.profile
+
+
+
+
+###############################################################
+#                 kafka-related commands                      #
+###############################################################
+export KAFKA_VERSION=2.3.0
+echo "export KAFKA_VERSION=${KAFKA_VERSION}" >> ~/.bashrc
+echo "export KAFKA_VERSION=${KAFKA_VERSION}" >> ~/.profile
+
+export KAFKA_HOME=$(pwd)/kafka_2.12-${KAFKA_VERSION}
+echo "export KAFKA_VERSION=${KAFKA_HOME}" >> ~/.bashrc
+echo "export KAFKA_VERSION=${KAFKA_HOME}" >> ~/.profile
+
+wget https://www-eu.apache.org/dist/kafka/${KAFKA_VERSION}/kafka_2.12-${KAFKA_VERSION}.tgz -q 	    && \
+tar -xvf kafka_2.12-${KAFKA_VERSION}.tgz > /dev/null 										 		&& \
+rm       kafka_2.12-${KAFKA_VERSION}.tgz															&& \
+mv 		 kafka_2.12-${KAFKA_VERSION}	kafka-${KAFKA_VERSION}
+
+# adding bin/ to $path
+echo "export PATH=\$PATH:\$KAFKA_HOME/bin"   >> ~/.bashrc
+echo "export PATH=\$PATH:\$KAFKA_HOME/bin"   >> ~/.profile
