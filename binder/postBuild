@@ -9,8 +9,8 @@
 # jupyter labextension install jupyterlab-sos --no-build 
 
 # Beaker installation and extension
-# beakerx install
-# jupyter labextension install beakerx-jupyterlab --no-build 
+beakerx install
+jupyter labextension install beakerx-jupyterlab --no-build 
 
 
 echo "IPywidgets Jupyterlab"
