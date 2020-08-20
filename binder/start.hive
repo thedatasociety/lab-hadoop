@@ -4,12 +4,20 @@
 cp ~/resources/configs/hive/${HIVE_VERSION}/beeline-log4j2.properties ${HIVE_HOME}/conf/
 cp ~/resources/configs/hive/${HIVE_VERSION}/hive-site.xml             ${HIVE_HOME}/conf/
 
+hdfs dfs -mkdir /tmp                                                                    
+hdfs dfs -mkdir /user/hive                                                           
+hdfs dfs -mkdir /user/hive/warehouse                                                           
+hdfs dfs -chmod g+w   /tmp
+hdfs dfs -chmod g+w   /user/hive/warehouse    
+
+
 #hack to make metastore_db within HIVE_HOME. 
 sed -i "s~HIVE_HOME~$HIVE_HOME~g" ${HIVE_HOME}/conf/hive-site.xml
 
 # deleting slf4j lib. Hive will automatically use slf4j-log4j jar file present in Hadoop
-rm ${HIVE_HOME}/lib/log4j-slf4j-impl-2.6.2.jar
+rm ${HIVE_HOME}/lib/log4j-slf4j-impl-*.jar
 
 #Starting from Hive 2.1, we need to run the schematool command below as an initialization step.
 cd ${HIVE_HOME} && schematool -dbType derby -initSchema
 
+echo "Finished starting Hive ${HIVE_VERSION}"

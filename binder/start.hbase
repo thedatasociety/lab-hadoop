@@ -8,3 +8,5 @@ cp ~/resources/configs/hbase/${HBASE_VERSION}/hbase-site.xml  ${HBASE_HOME}/conf
 hdfs dfs -mkdir /hbase
 
 ${HBASE_HOME}/bin/start-hbase.sh
+
+echo "Finished starting HBase ${HBASE_VERSION}"

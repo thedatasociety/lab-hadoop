@@ -5,20 +5,19 @@ chmod +x ~/binder/start.hadoop
 chmod +x ~/binder/start.hive 
 chmod +x ~/binder/start.mysql 
 chmod +x ~/binder/start.hbase 
+chmod +x ~/binder/start.vscode 
 #chmod +x ~/binder/start.mariadb 
 
 # starting mysql in parallel
 ~/binder/start.mysql   &
 
 # starting vscode in parallel
-~/binder/start.vscode   &
+~/binder/start.vscode  &
 
 # starting big data environment in parallel
-~/binder/start.hadoop  \&&
-sleep 3                \&&
-~/binder/start.hive    \&&
-sleep 3                \&&
-~/binder/start.hbase   \&&
+~/binder/start.hadoop  &&\
+~/binder/start.hive    &&\
+~/binder/start.hbase   &&\
 touch ready.txt        &
 
 
