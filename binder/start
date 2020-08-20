@@ -10,12 +10,12 @@ chmod +x ~/binder/start.hbase
 # starting mysql in parallel
 ~/binder/start.mysql   &
 
-~/binder/start.hadoop  
-sleep 3               
-~/binder/start.hive    
-sleep 3                
-~/binder/start.hbase  
-touch ready.txt        
+~/binder/start.hadoop  \&&
+sleep 3                \&&
+~/binder/start.hive    \&&
+sleep 3                \&&
+~/binder/start.hbase   \&&
+touch ready.txt        &
 
 
 
