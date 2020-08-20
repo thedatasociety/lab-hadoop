@@ -6,18 +6,16 @@ beakerx
 py4j
 
 # sos - script of scripts (multiple kernels)
-sos
-sos-notebook
+# sos
+# sos-notebook
 
 #jupyter/jupyterlab extensions
-jupyterlab
-jupyter_contrib_nbextensions
-jupyterlab_launcher
-jupyterlab-git
+
 ipywidgets
+RISE
 
 jupyter-server-proxy
-
+jupyter-vscode-proxy
 
 
 ###############################################################
@@ -26,3 +24,15 @@ jupyter-server-proxy
 
 mrjob
 google-api-python-client
+
+
+###############################################################
+#          python packages             #
+###############################################################
+
+pprintpp
+numpy
+pandas
+matplotlib
+plotly
+

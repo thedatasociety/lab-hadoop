@@ -20,15 +20,15 @@ cp ~/resources/configs/hadoop/${HADOOP_VERSION}/hdfs-site.xml ${HADOOP_HOME}/etc
 # Formatting the filesystem
 hdfs namenode -format -force -nonInteractive >> /dev/null
 
-start-dfs.sh                                                                                && \
+start-dfs.sh                                                                                
 #Copying YARN configurations for Pseudo-Distributed Mode
-cp ~/resources/configs/hadoop/${HADOOP_VERSION}/mapred-site.xml ${HADOOP_HOME}/etc/hadoop/  && \
-cp ~/resources/configs/hadoop/${HADOOP_VERSION}/yarn-site.xml   ${HADOOP_HOME}/etc/hadoop/  && \
+cp ~/resources/configs/hadoop/${HADOOP_VERSION}/mapred-site.xml ${HADOOP_HOME}/etc/hadoop/  
+cp ~/resources/configs/hadoop/${HADOOP_VERSION}/yarn-site.xml   ${HADOOP_HOME}/etc/hadoop/  
 
-start-yarn.sh                                                                               && \
+start-yarn.sh                                                                               
 
-hdfs dfs -mkdir /user/                                                                      && \
-hdfs dfs -mkdir /user/matheus/                                                              && \
-hdfs dfs -mkdir /user/$USER                                                                 &
+hdfs dfs -mkdir /user/                                                                      
+hdfs dfs -mkdir /user/matheus/                                                              
+hdfs dfs -mkdir /user/$USER                                                                 
 
 # echo "${USER} $(pwd) ${HADOOP_HOME} ${HADOOP_VERSION}" > startresult.txt
