@@ -12,7 +12,7 @@ py4j
 #jupyter/jupyterlab extensions
 
 ipywidgets
-RISE
+# RISE
 
 jupyter-server-proxy
 jupyter-vscode-proxy
@@ -23,7 +23,7 @@ jupyter-vscode-proxy
 ###############################################################
 
 mrjob
-google-api-python-client
+# google-api-python-client
 
 
 ###############################################################
