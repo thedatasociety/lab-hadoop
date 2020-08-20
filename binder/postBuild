@@ -10,8 +10,7 @@
 
 # Beaker installation and extension
 beakerx install
-jupyter labextension install beakerx-jupyterlab --no-build 
-
+jupyter labextension install beakerx-jupyterlab 
 
 echo "IPywidgets Jupyterlab"
 jupyter labextension install @jupyter-widgets/jupyterlab-manager --no-build 
