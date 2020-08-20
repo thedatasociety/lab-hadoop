@@ -91,7 +91,7 @@ echo "export HADOOP_SSH_OPTS=\"-o StrictHostKeyChecking=no -p 8822\"" >> ~/.prof
 #               hive-related commands                         #
 ###############################################################
 
-export HIVE_VERSION=2.3.6
+export HIVE_VERSION=2.3.7
 echo "export HIVE_VERSION=${HIVE_VERSION}" >> ~/.bashrc
 echo "export HIVE_VERSION=${HIVE_VERSION}" >> ~/.profile
 
@@ -100,9 +100,9 @@ echo "export HIVE_HOME=${HIVE_HOME}"       >> ~/.bashrc
 echo "export HIVE_HOME=${HIVE_HOME}"       >> ~/.profile
 
 
-wget http://ftp.unicamp.br/pub/apache/hive/hive-${HIVE_VERSION}/apache-hive-${HIVE_VERSION}-bin.tar.gz -q  && \
-tar -xvf apache-hive-${HIVE_VERSION}-bin.tar.gz >> /dev/null                                               && \
-rm       apache-hive-${HIVE_VERSION}-bin.tar.gz                                                            && \
+wget http://ftp.unicamp.br/pub/apache/hive/hive-${HIVE_VERSION}/apache-hive-${HIVE_VERSION}-bin.tar.gz -q 
+tar -xvf apache-hive-${HIVE_VERSION}-bin.tar.gz >> /dev/null                                               
+rm       apache-hive-${HIVE_VERSION}-bin.tar.gz                                                            
 mv       apache-hive-${HIVE_VERSION}-bin        hive-${HIVE_VERSION}      
 
 # adding bin and sbin to $path
@@ -146,9 +146,9 @@ echo "export MYSQL_HOME=${MYSQL_HOME}"       >> ~/.bashrc
 echo "export MYSQL_HOME=${MYSQL_HOME}"       >> ~/.profile
 
        
-wget https://cdn.mysql.com/archives/mysql-8.0/mysql-${MYSQL_VERSION}-linux-x86_64-minimal.tar.xz -q  && \
-tar -xf mysql-${MYSQL_VERSION}-linux-x86_64-minimal.tar.xz >> /dev/null                              && \
-rm      mysql-${MYSQL_VERSION}-linux-x86_64-minimal.tar.xz                                           && \
+wget https://cdn.mysql.com/archives/mysql-8.0/mysql-${MYSQL_VERSION}-linux-x86_64-minimal.tar.xz -q  
+tar -xf mysql-${MYSQL_VERSION}-linux-x86_64-minimal.tar.xz >> /dev/null                              
+rm      mysql-${MYSQL_VERSION}-linux-x86_64-minimal.tar.xz                                           
 mv      mysql-${MYSQL_VERSION}-linux-x86_64-minimal        mysql-${MYSQL_VERSION} 
 
 # adding bin/ to $path
@@ -186,7 +186,7 @@ echo "export PATH=\$PATH:\$SQOOP_HOME/bin"   >> ~/.profile
 #                 hbase-related commands                      #
 ###############################################################
 
-export HBASE_VERSION=2.2.0
+export HBASE_VERSION=2.2.5
 echo "export HBASE_VERSION=${HBASE_VERSION}" >> ~/.bashrc
 echo "export HBASE_VERSION=${HBASE_VERSION}" >> ~/.profile
 
@@ -194,8 +194,8 @@ export HBASE_HOME=$(pwd)/hbase-${HBASE_VERSION}
 echo "export HBASE_HOME=${HBASE_HOME}"       >> ~/.bashrc
 echo "export HBASE_HOME=${HBASE_HOME}"       >> ~/.profile
 
-wget http://ftp.unicamp.br/pub/apache/hbase/${HBASE_VERSION}/hbase-${HBASE_VERSION}-bin.tar.gz -q  && \
-tar -xf hbase-${HBASE_VERSION}-bin.tar.gz    >> /dev/null                                          && \
+wget http://ftp.unicamp.br/pub/apache/hbase/${HBASE_VERSION}/hbase-${HBASE_VERSION}-bin.tar.gz -q
+tar -xf hbase-${HBASE_VERSION}-bin.tar.gz    >> /dev/null                                         
 rm      hbase-${HBASE_VERSION}-bin.tar.gz                    
 
 # adding bin/ to $path
