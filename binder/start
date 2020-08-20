@@ -16,8 +16,11 @@ chmod +x ~/binder/start.vscode
 
 # starting big data environment in parallel
 ~/binder/start.hadoop  &&\
+sleep 5                &&\
 ~/binder/start.hive    &&\
+sleep 3                &&\
 ~/binder/start.hbase   &&\
+sleep 3                &&\
 touch ready.txt        &
 
 

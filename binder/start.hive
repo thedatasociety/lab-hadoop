@@ -1,5 +1,5 @@
 #!/bin/bash
-sleep 10
+
 #setting log level higher for less verbosity
 cp ~/resources/configs/hive/${HIVE_VERSION}/beeline-log4j2.properties ${HIVE_HOME}/conf/
 cp ~/resources/configs/hive/${HIVE_VERSION}/hive-site.xml             ${HIVE_HOME}/conf/
