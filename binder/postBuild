@@ -43,8 +43,7 @@ export HADOOP_HOME=$(pwd)/hadoop-${HADOOP_VERSION}
 echo "export HADOOP_HOME=${HADOOP_HOME}"       >> ~/.bashrc
 echo "export HADOOP_HOME=${HADOOP_HOME}"       >> ~/.profile
 
-
-wget http://ftp.unicamp.br/pub/apache/hadoop/common/hadoop-${HADOOP_VERSION}/hadoop-${HADOOP_VERSION}.tar.gz -q   && \
+wget https://archive.apache.org/dist/hadoop/common/hadoop-${HADOOP_VERSION}/hadoop-${HADOOP_VERSION}.tar.gz -q   && \
 tar -xvf hadoop-${HADOOP_VERSION}.tar.gz >> /dev/null                                                             && \
 rm       hadoop-${HADOOP_VERSION}.tar.gz              
 
