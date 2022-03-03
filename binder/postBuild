@@ -189,7 +189,8 @@ export HBASE_HOME=$(pwd)/hbase-${HBASE_VERSION}
 echo "export HBASE_HOME=${HBASE_HOME}"       >> ~/.bashrc
 echo "export HBASE_HOME=${HBASE_HOME}"       >> ~/.profile
 
-wget http://ftp.unicamp.br/pub/apache/hbase/${HBASE_VERSION}/hbase-${HBASE_VERSION}-bin.tar.gz -q
+#wget http://ftp.unicamp.br/pub/apache/hbase/${HBASE_VERSION}/hbase-${HBASE_VERSION}-bin.tar.gz -q
+wget https://archive.apache.org/dist/hbase/${HBASE_VERSION}/hbase-${HBASE_VERSION}-bin.tar.gz -q
 tar -xf hbase-${HBASE_VERSION}-bin.tar.gz    >> /dev/null                                         
 rm      hbase-${HBASE_VERSION}-bin.tar.gz                    
 
@@ -212,7 +213,8 @@ export FLUME_HOME=$(pwd)/flume-${FLUME_VERSION}
 echo "export FLUME_HOME=${FLUME_HOME}"       >> ~/.bashrc
 echo "export FLUME_HOME=${FLUME_HOME}"       >> ~/.profile
 
-wget http://ftp.unicamp.br/pub/apache/flume/${FLUME_VERSION}/apache-flume-${FLUME_VERSION}-bin.tar.gz -q && \
+#wget http://ftp.unicamp.br/pub/apache/flume/${FLUME_VERSION}/apache-flume-${FLUME_VERSION}-bin.tar.gz -q && \
+wget http://archive.apache.org/dist/flume/${FLUME_VERSION}/apache-flume-${FLUME_VERSION}-bin.tar.gz -q && \
 tar -xf apache-flume-${FLUME_VERSION}-bin.tar.gz > /dev/null                                             && \
 rm      apache-flume-1.9.0-bin.tar.gz                                                                    && \
 mv      apache-flume-${FLUME_VERSION}-bin        flume-${FLUME_VERSION} 
