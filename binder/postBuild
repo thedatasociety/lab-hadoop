@@ -165,7 +165,7 @@ export SQOOP_HOME=$(pwd)/sqoop-${SQOOP_VERSION}
 echo "export SQOOP_HOME=${SQOOP_HOME}"       >> ~/.bashrc
 echo "export SQOOP_HOME=${SQOOP_HOME}"       >> ~/.profile
 
-wget http://ftp.unicamp.br/pub/apache/sqoop/${SQOOP_VERSION}/sqoop-${SQOOP_VERSION}.bin__hadoop-2.6.0.tar.gz -q  && \
+wget http://archive.apache.org/dist/sqoop/${SQOOP_VERSION}/sqoop-${SQOOP_VERSION}.bin__hadoop-2.6.0.tar.gz -q  && \
 tar -xf sqoop-${SQOOP_VERSION}.bin__hadoop-2.6.0.tar.gz >> /dev/null                                             && \
 rm      sqoop-${SQOOP_VERSION}.bin__hadoop-2.6.0.tar.gz                                                          && \
 mv      sqoop-${SQOOP_VERSION}.bin__hadoop-2.6.0        sqoop-${SQOOP_VERSION} 
