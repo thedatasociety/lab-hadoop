@@ -3,14 +3,14 @@
 
 chmod +x ~/binder/start.hadoop 
 chmod +x ~/binder/start.hive 
-chmod +x ~/binder/start.mysql 
+#chmod +x ~/binder/start.mysql 
 chmod +x ~/binder/start.hbase 
 chmod +x ~/binder/start.zookeeper
 chmod +x ~/binder/start.kafka
 #chmod +x ~/binder/start.mariadb 
 
 # starting mysql in parallel
-~/binder/start.mysql   		&
+#~/binder/start.mysql   		&
 
 ~/binder/start.hadoop  		&& \
 sleep 3                		&& \
