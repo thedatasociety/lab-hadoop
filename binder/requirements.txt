@@ -4,7 +4,7 @@
 # beakerx (kernels: java, clojure, groovy, scala, kotlin, sql) and dependencies
 beakerx
 py4j
-jupyterlab==1.2.6
+jupyterlab==3.6.7
 
 # sos - script of scripts (multiple kernels)
 # sos
